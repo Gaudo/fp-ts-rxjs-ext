@@ -2,14 +2,16 @@
 	"name": "@fgaudo/fp-ts-rxjs-ext",
 	"version": "0.0.1",
 	"description": "Extensions for fp-ts-rxjs",
-	"scripts": {
-		"clean": "del ./dist",
-		"build": "npm run clean && npm run build:esm && npm run build:cjs",
-		"build:esm": "tsc -p ./tsconfig.esm.json && move dist/esm/index.js dist/esm/index.mjs",
-		"build:cjs": "tsc -p ./tsconfig.cjs.json"
+	"license": "ISC",
+	"author": "Francesco Gaudenzi <fgaudo@gmail.com>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fgaudo/fp-ts-rxjs-ext.git"
 	},
-	"types": "./dist/cjs/types/index.d.ts",
-	"main": "./dist/cjs/index.js",
+	"bugs": {
+		"url": "https://github.com/fgaudo/fp-ts-rxjs-ext/issues",
+		"email": "fgaudo@gmail.com"
+	},
 	"exports": {
 		".": {
 			"import": {
@@ -22,9 +24,22 @@
 			}
 		}
 	},
+	"main": "./dist/cjs/index.js",
 	"files": [
 		"lib"
 	],
+	"scripts": {
+		"build": "npm run clean && npm run build:esm && npm run build:cjs",
+		"build:cjs": "tsc -p ./tsconfig.cjs.json",
+		"build:esm": "tsc -p ./tsconfig.esm.json && move dist/esm/index.js dist/esm/index.mjs",
+		"clean": "del ./dist"
+	},
+	"types": "./dist/cjs/types/index.d.ts",
+	"peerDependencies": {
+		"fp-ts": "^2.4.4",
+		"fp-ts-rxjs": "^0.6.15",
+		"rxjs": "^6.0.0"
+	},
 	"devDependencies": {
 		"@trivago/prettier-plugin-sort-imports": "^4.1.1",
 		"@types/chai": "^4.3.5",
@@ -44,29 +59,14 @@
 		"ts-mocha": "^10.0.0",
 		"typescript": "^5.1.6"
 	},
-	"peerDependencies": {
-		"fp-ts": "^2.4.4",
-		"fp-ts-rxjs": "^0.6.15",
-		"rxjs": "^6.0.0"
-	},
 	"keywords": [
+		"fp-ts",
 		"fp-ts-rxjs",
-		"rxjs",
-		"fp-ts"
+		"rxjs"
 	],
 	"tags": [
 		"fp-ts-rxjs",
 		"rxjs",
 		"fp-ts"
-	],
-	"author": "Francesco Gaudenzi <fgaudo@gmail.com>",
-	"bugs": {
-		"url": "https://github.com/fgaudo/fp-ts-rxjs-ext/issues",
-		"email": "fgaudo@gmail.com"
-	},
-	"license": "ISC",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/fgaudo/fp-ts-rxjs-ext.git"
-	}
+	]
 }
