@@ -1,4 +1,4 @@
-Extensions for fp-ts-rxjs
+Extensions for [fp-ts-rxjs](https://github.com/gcanti/fp-ts-rxjs)
 
 ## Motivation
 Fp-ts-rxjs is an awesome library, but imho it lacks some useful rxjs functions like `switchMap`, `concat` and so on..
