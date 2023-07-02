@@ -17,7 +17,7 @@ You can still install and use v7 with this library and it will probably still wo
 # Suggested usage
 ```typescript
 import * as RO from 'fp-ts-rxjs/lib/ReaderObservable'
-import {readerObservable as ROx} from '@fgaudo/fp-ts-rxjs-ext'
+import {readerObservable as ROx} from '@fgaudo/fp-ts-rxjs-extension'
 
 // ROx are the extensions :)
 pipe(
