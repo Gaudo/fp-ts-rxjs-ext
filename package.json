@@ -1,5 +1,5 @@
 {
-	"name": "@fgaudo/fp-ts-rxjs-ext",
+	"name": "@fgaudo/fp-ts-rxjs-extension",
 	"version": "0.0.1",
 	"description": "Extensions for fp-ts-rxjs",
 	"license": "ISC",
