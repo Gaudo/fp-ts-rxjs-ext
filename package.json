@@ -59,6 +59,14 @@
 		"rxjs",
 		"fp-ts"
 	],
-	"author": "",
-	"license": "ISC"
+	"author": "Francesco Gaudenzi <fgaudo@gmail.com>",
+	"bugs": {
+		"url": "https://github.com/fgaudo/fp-ts-rxjs-ext/issues",
+		"email": "fgaudo@gmail.com"
+	},
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fgaudo/fp-ts-rxjs-ext.git"
+	}
 }
