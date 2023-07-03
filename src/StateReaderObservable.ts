@@ -1,6 +1,8 @@
 import * as RO from 'fp-ts-rxjs/lib/ReaderObservable'
 import { pipe } from 'fp-ts/lib/function'
 
+import * as ROx from './ReaderObservable'
+
 //////////////
 
 export type StateReaderObservable<STATE, ENV, IN> = (
@@ -70,3 +72,14 @@ export const modify: Modify = f => s => RO.of([undefined, f(s)])
 type Put = <STATE, ENV>(s: STATE) => StateReaderObservable<STATE, ENV, void>
 
 export const put: Put = s => () => RO.of([undefined, s])
+
+//////////////
+
+type Concat = <STATE, ENV, A>(
+	...sos: readonly StateReaderObservable<STATE, ENV, A>[]
+) => StateReaderObservable<STATE, ENV, A>
+
+export const concat: Concat =
+	(...sos) =>
+	s =>
+		ROx.concat(...sos.map(so => so(s)))

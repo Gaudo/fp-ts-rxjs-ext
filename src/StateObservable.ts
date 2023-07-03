@@ -1,6 +1,7 @@
 import * as O from 'fp-ts-rxjs/Observable'
 import { pipe } from 'fp-ts/lib/function'
 import * as Rx from 'rxjs'
+import * as RxO from 'rxjs/operators'
 
 //////////////
 
@@ -53,3 +54,26 @@ export const modify: Modify = f => s => O.of([undefined, f(s)])
 type Put = <STATE>(s: STATE) => StateObservable<STATE, void>
 
 export const put: Put = s => () => O.of([undefined, s])
+
+//////////////
+
+type SwitchMap = <STATE, IN, OUT>(
+	project: (a: IN, index: number) => StateObservable<STATE, OUT>
+) => (p: StateObservable<STATE, IN>) => StateObservable<STATE, OUT>
+
+export const switchMap: SwitchMap = project => so => s =>
+	pipe(
+		so(s),
+		RxO.switchMap(([a, s2], index) => O.of([project(a, index), s2]))
+	)
+
+//////////////
+
+type Concat = <STATE, A>(
+	...sos: readonly StateObservable<STATE, A>[]
+) => StateObservable<STATE, A>
+
+export const concat: Concat =
+	(...sos) =>
+	s =>
+		Rx.concat(...sos.map(so => so(s)))

@@ -56,12 +56,7 @@ type ConcatW = <T extends readonly RO.ReaderObservable<any, any>[]>(
 export const concatW: ConcatW =
 	(...ros) =>
 	env =>
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-return
-		pipe(
-			ros.map(ro => ro(env)),
-			Rx.concat
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		) as any
+		Rx.concat(...ros.map(ro => ro(env)))
 
 //////////////
 
@@ -69,5 +64,4 @@ type Concat = <ENV, A>(
 	...ros: readonly RO.ReaderObservable<ENV, A>[]
 ) => RO.ReaderObservable<ENV, A>
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
 export const concat: Concat = concatW as any
