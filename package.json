@@ -6,10 +6,10 @@
 	"author": "Francesco Gaudenzi <fgaudo@gmail.com>",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/fgaudo/fp-ts-rxjs-ext.git"
+		"url": "https://github.com/fgaudo/fp-ts-rxjs-extension.git"
 	},
 	"bugs": {
-		"url": "https://github.com/fgaudo/fp-ts-rxjs-ext/issues",
+		"url": "https://github.com/fgaudo/fp-ts-rxjs-extension/issues",
 		"email": "fgaudo@gmail.com"
 	},
 	"exports": {
