@@ -64,7 +64,7 @@ type SwitchMap = <STATE, IN, OUT>(
 export const switchMap: SwitchMap = project => so => s =>
 	pipe(
 		so(s),
-		RxO.switchMap(([a, s2], index) => O.of([project(a, index), s2]))
+		RxO.switchMap(([a, s2], index) => project(a, index)(s2))
 	)
 
 //////////////

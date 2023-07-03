@@ -1,5 +1,7 @@
+import * as O from 'fp-ts-rxjs/lib/Observable'
 import * as RO from 'fp-ts-rxjs/lib/ReaderObservable'
 import { pipe } from 'fp-ts/lib/function'
+import * as RxO from 'rxjs/operators'
 
 import * as ROx from './ReaderObservable'
 
@@ -72,6 +74,20 @@ export const modify: Modify = f => s => RO.of([undefined, f(s)])
 type Put = <STATE, ENV>(s: STATE) => StateReaderObservable<STATE, ENV, void>
 
 export const put: Put = s => () => RO.of([undefined, s])
+
+//////////////
+
+type SwitchMap = <STATE, ENV, IN, OUT>(
+	project: (a: IN, index: number) => StateReaderObservable<STATE, ENV, OUT>
+) => (
+	p: StateReaderObservable<STATE, ENV, IN>
+) => StateReaderObservable<STATE, ENV, OUT>
+
+export const switchMap: SwitchMap = project => so => s => env =>
+	pipe(
+		so(s)(env),
+		RxO.switchMap(([a, s2], index) => project(a, index)(s2)(env))
+	)
 
 //////////////
 
