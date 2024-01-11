@@ -1,4 +1,4 @@
-This library provides [fp-ts](https://github.com/gcanti/fp-ts) bindings for [rxjs](https://rxjs.dev/)
+This library provides [fp-ts](https://github.com/gcanti/fp-ts) bindings for [rxjs](https://rxjs.dev/).
 It is meant as a light alternative to [fp-ts-rxjs](https://github.com/gcanti/fp-ts-rxjs).
 
 ## Motivation
@@ -16,7 +16,7 @@ It is meant as a light alternative to [fp-ts-rxjs](https://github.com/gcanti/fp-
 ```typescript
 import { readerObservable as RO } from '@fgaudo/fp-ts-rxjs'
 import { reader as R } from 'fp-ts'
-import { * as Rx } from 'rxjs'
+import * as Rx from 'rxjs'
 
 pipe(
 	Rx.of('Answer to everything:'),
