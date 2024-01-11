@@ -1,48 +1,35 @@
-import * as OE from 'fp-ts-rxjs/lib/ObservableEither'
-import * as RO from 'fp-ts-rxjs/lib/ReaderObservable'
-import * as ROE from 'fp-ts-rxjs/lib/ReaderObservableEither'
+import { Either } from 'fp-ts/lib/Either'
+import { Reader } from 'fp-ts/lib/Reader'
 import { pipe } from 'fp-ts/lib/function'
+import * as Rx from 'rxjs'
 
-import * as OEx from './ObservableEither'
+import * as OE from './ObservableEither'
+
+export type ReaderObservableEither<ENV, E, A> = Reader<
+	ENV,
+	Rx.Observable<Either<E, A>>
+>
 
 //////////////
 
 type SwitchMapW = <ENV1, ERR1, IN, OUT>(
-	f: (in_: IN, index: number) => ROE.ReaderObservableEither<ENV1, ERR1, OUT>
+	f: (in_: IN, index: number) => ReaderObservableEither<ENV1, ERR1, OUT>
 ) => <ENV2, ERR2>(
-	p: ROE.ReaderObservableEither<ENV2, ERR2, IN>
-) => ROE.ReaderObservableEither<ENV1 & ENV2, ERR1 | ERR2, OUT>
+	p: ReaderObservableEither<ENV2, ERR2, IN>
+) => ReaderObservableEither<ENV1 & ENV2, ERR1 | ERR2, OUT>
 
 export const switchMapW: SwitchMapW = f => roe => env =>
 	pipe(
 		roe(env),
-		OEx.switchMapW((in_, index) => f(in_, index)(env))
+		OE.switchMapW((in_, index) => f(in_, index)(env))
 	)
 
 //////////////
 
 type SwitchMap = <ENV, ERR, IN, OUT>(
-	f: (in_: IN, index: number) => ROE.ReaderObservableEither<ENV, ERR, OUT>
+	f: (in_: IN, index: number) => ReaderObservableEither<ENV, ERR, OUT>
 ) => (
-	p: ROE.ReaderObservableEither<ENV, ERR, IN>
-) => ROE.ReaderObservableEither<ENV, ERR, OUT>
+	p: ReaderObservableEither<ENV, ERR, IN>
+) => ReaderObservableEither<ENV, ERR, OUT>
 
 export const switchMap: SwitchMap = switchMapW
-
-//////////////
-
-type Fold = <ENV1, ENV2, E, A, B>(
-	onLeft: (e: E) => RO.ReaderObservable<ENV2, B>,
-	onRight: (a: A) => RO.ReaderObservable<ENV1, B>
-) => <ENV3>(
-	o: ROE.ReaderObservableEither<ENV3, E, A>
-) => RO.ReaderObservable<ENV1 & ENV2 & ENV3, B>
-
-export const fold: Fold = (onLeft, onRight) => roe => env =>
-	pipe(
-		roe(env),
-		OE.fold(
-			err => onLeft(err)(env),
-			now => onRight(now)(env)
-		)
-	)

@@ -1,33 +1,26 @@
-Extensions for [fp-ts-rxjs](https://github.com/gcanti/fp-ts-rxjs)
+This library provides [fp-ts](https://github.com/gcanti/fp-ts) bindings for [rxjs](https://rxjs.dev/)
+It is meant as a light alternative to [fp-ts-rxjs](https://github.com/gcanti/fp-ts-rxjs).
 
 ## Motivation
-Fp-ts-rxjs is an awesome library, but imho it lacks some useful rxjs functions like `switchMap`, `concat` and so on..
-
-This library also provides a slightly different implementation of `ap` and the `Apply`
-instance for `ObservableEither`s, which allows a `sequenceT` to fail fast when one of the arguments returns a `Left`.
+1) fp-ts-rxjs is currently fixed to rxjs 6 due to [#63](https://github.com/gcanti/fp-ts-rxjs/issues/63) and doesn't seem to be getting any updates.
+2) I don't agree with some of the implementations and instances used in fp-ts-rxjs.
 
 ## Installation
-`npm install @fgaudo/fp-ts-rxjs-extension`
+`npm install @fgaudo/fp-ts-rxjs`
 
 ## IMPORTANT NOTES
-* This is just a personal library which will hopefully be superseded by newer versions of fp-ts-rxjs.
-Keep in mind that i only add functions that i need in my other projects. **But** if you have a request.. just ask :)
+- New functions will be incorporated as per my personal needs and requirements over time.
+  If you specifically need one, just open an issue. :)
 
-* Remember that currently fp-ts-rxjs is fixed to rxjs v6 because of https://github.com/gcanti/fp-ts-rxjs/issues/63 .
-For this reason, these extensions will also have that version as `peerDependency`.
-You can still install and use v7 with this library and it will probably still work. (I do so, and still haven't had any problems)
-
-
-## Suggested usage
+## Example
 ```typescript
-import * as RO from 'fp-ts-rxjs/lib/ReaderObservable'
-import {readerObservable as ROx} from '@fgaudo/fp-ts-rxjs-extension'
+import { readerObservable as RO } from '@fgaudo/fp-ts-rxjs'
+import { reader as R } from 'fp-ts'
+import { * as Rx } from 'rxjs'
 
-// ROx are the ReaderObservable's extensions :)
 pipe(
-  RO.of('Answer to everything:'),
-  ROx.switchMap(text =>
-    RO.asks<string, string>(answer => `${text} ${answer}`))
+	Rx.of('Answer to everything:'),
+	R.of,
+	RO.switchMap(text => R.asks(answer => Rx.of(`${text} ${answer}`)))
 )('42').subscribe(console.log)
-```
 

@@ -1,15 +1,15 @@
 {
-	"name": "@fgaudo/fp-ts-rxjs-extension",
+	"name": "@fgaudo/fp-ts-rxjs",
 	"version": "0.0.1",
-	"description": "Extensions for fp-ts-rxjs",
+	"description": "Observables with fp-ts",
 	"license": "MIT",
 	"author": "Francesco Gaudenzi <fgaudo@gmail.com>",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/fgaudo/fp-ts-rxjs-extension.git"
+		"url": "https://github.com/fgaudo/fp-ts-rxjs.git"
 	},
 	"bugs": {
-		"url": "https://github.com/fgaudo/fp-ts-rxjs-extension/issues",
+		"url": "https://github.com/fgaudo/fp-ts-rxjs/issues",
 		"email": "fgaudo@gmail.com"
 	},
 	"exports": {
@@ -36,28 +36,27 @@
 	},
 	"types": "./dist/cjs/types/index.d.ts",
 	"peerDependencies": {
-		"fp-ts": "^2.4.4",
-		"fp-ts-rxjs": "^0.6.15",
-		"rxjs": "^6.0.0"
+		"fp-ts": "2.x",
+		"rxjs": "7.x"
 	},
 	"devDependencies": {
-		"@trivago/prettier-plugin-sort-imports": "^4.1.1",
-		"@types/chai": "^4.3.5",
-		"@types/mocha": "^10.0.1",
-		"@typescript-eslint/eslint-plugin": "^5.60.1",
-		"@typescript-eslint/parser": "^5.60.1",
-		"chai": "^4.3.7",
-		"del-cli": "^5.0.0",
-		"eslint": "^8.43.0",
-		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-functional": "^5.0.8",
+		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
+		"@types/chai": "^4.3.11",
+		"@types/mocha": "^10.0.6",
+		"@typescript-eslint/eslint-plugin": "^6.18.1",
+		"@typescript-eslint/parser": "^6.18.1",
+		"chai": "^5.0.0",
+		"del-cli": "^5.1.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-functional": "^6.0.0",
 		"eslint-plugin-tsdoc": "^0.2.17",
 		"mocha": "^10.2.0",
 		"move-cli": "^2.0.0",
-		"prettier": "^2.8.8",
+		"prettier": "^3.1.1",
 		"simplytyped": "^3.3.0",
 		"ts-mocha": "^10.0.0",
-		"typescript": "^5.1.6"
+		"typescript": "^5.3.3"
 	},
 	"keywords": [
 		"fp-ts",

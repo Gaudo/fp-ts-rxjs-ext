@@ -36,7 +36,6 @@ module.exports = {
 		'functional/functional-parameters': 'off',
 		'functional/no-promise-reject': 'error',
 		'functional/type-declaration-immutability': 'off',
-
 		'tsdoc/syntax': 'warn'
 	}
 }
