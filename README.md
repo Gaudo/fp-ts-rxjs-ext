@@ -17,6 +17,7 @@ It is meant as a light alternative to [fp-ts-rxjs](https://github.com/gcanti/fp-
 import { readerObservable as RO } from '@fgaudo/fp-ts-rxjs'
 import { reader as R } from 'fp-ts'
 import * as Rx from 'rxjs'
+import { pipe } from 'fp-ts/function'
 
 pipe(
 	Rx.of('Answer to everything:'),
