@@ -60,7 +60,7 @@ type Tap = <ENV, A>(
 export const tap: Tap = f => ro => env =>
 	pipe(
 		ro(env),
-		RxO.tap(a => f(a)(env))
+		RxO.tap(a => f(a)(env)())
 	)
 
 //////////////
@@ -115,5 +115,5 @@ export type ReaderObservableInputTuple<ENV, T> = {
 export function merge<ENV, A extends readonly unknown[]>(
 	...sources: [...ReaderObservableInputTuple<ENV, A>]
 ): R.Reader<ENV, Rx.Observable<A[number]>> {
-	return env => Rx.merge(sources.map(a => a(env)))
+	return env => Rx.merge(...sources.map(a => a(env)))
 }

@@ -12,29 +12,16 @@
 		"url": "https://github.com/fgaudo/fp-ts-rxjs/issues",
 		"email": "fgaudo@gmail.com"
 	},
-	"exports": {
-		".": {
-			"import": {
-				"types": "./dist/esm/types/index.d.ts",
-				"default": "./dist/esm/index.mjs"
-			},
-			"require": {
-				"types": "./dist/cjs/types/index.d.ts",
-				"default": "./dist/cjs/index.js"
-			}
-		}
-	},
-	"main": "./dist/cjs/index.js",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
 	"files": [
-		"dist/**/*"
+		"dist"
 	],
 	"scripts": {
-		"build": "npm run clean && npm run build:esm && npm run build:cjs",
-		"build:cjs": "tsc -p ./tsconfig.cjs.json",
-		"build:esm": "tsc -p ./tsconfig.esm.json && move dist/esm/index.js dist/esm/index.mjs",
-		"clean": "del ./dist"
+		"build": "tsup",
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"types": "./dist/cjs/types/index.d.ts",
 	"peerDependencies": {
 		"fp-ts": "2.x",
 		"rxjs": "7.x"
@@ -51,11 +38,14 @@
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-functional": "^6.0.0",
 		"eslint-plugin-tsdoc": "^0.2.17",
+		"fp-ts": "2.x",
 		"mocha": "^10.2.0",
 		"move-cli": "^2.0.0",
 		"prettier": "^3.1.1",
+		"rxjs": "7.x",
 		"simplytyped": "^3.3.0",
 		"ts-mocha": "^10.0.0",
+		"tsup": "^8.0.1",
 		"typescript": "^5.3.3"
 	},
 	"keywords": [
@@ -67,5 +57,6 @@
 		"fp-ts-rxjs",
 		"rxjs",
 		"fp-ts"
-	]
+	],
+	"packageManager": "npm@10.3.0+sha256.ec92e7332e3f7aef6feb2b3c9585fde534cd56905cf26e77debc69e4e2b44892"
 }
