@@ -6,7 +6,7 @@
 	"author": "Francesco Gaudenzi <fgaudo@gmail.com>",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/fgaudo/fp-ts-rxjs.git"
+		"url": "git+https://github.com/fgaudo/fp-ts-rxjs.git"
 	},
 	"bugs": {
 		"url": "https://github.com/fgaudo/fp-ts-rxjs/issues",
