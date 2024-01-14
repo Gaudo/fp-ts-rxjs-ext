@@ -1,6 +1,6 @@
-import { Either } from 'fp-ts/lib/Either'
-import { Reader } from 'fp-ts/lib/Reader'
-import { pipe } from 'fp-ts/lib/function'
+import { Either } from 'fp-ts/Either'
+import { Reader } from 'fp-ts/Reader'
+import { pipe } from 'fp-ts/function'
 import * as Rx from 'rxjs'
 
 import * as OE from './ObservableEither'

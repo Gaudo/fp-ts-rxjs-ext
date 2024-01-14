@@ -14,8 +14,8 @@ It is meant as a light alternative to [fp-ts-rxjs](https://github.com/gcanti/fp-
 
 ## Example
 ```typescript
-import { readerObservable as RO } from '@fgaudo/fp-ts-rxjs'
-import { reader as R } from 'fp-ts'
+import * as RO from '@fgaudo/fp-ts-rxjs/ReaderObservable'
+import * as R from 'fp-ts/Reader'
 import * as Rx from 'rxjs'
 import { pipe } from 'fp-ts/function'
 

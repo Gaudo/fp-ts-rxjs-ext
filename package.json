@@ -1,7 +1,7 @@
 {
 	"name": "@fgaudo/fp-ts-rxjs",
-	"version": "0.0.1",
-	"description": "Observables with fp-ts",
+	"version": "0.1.0",
+	"description": "RxJS bindings for fp-ts",
 	"license": "MIT",
 	"author": "Francesco Gaudenzi <fgaudo@gmail.com>",
 	"repository": {
@@ -12,9 +12,25 @@
 		"url": "https://github.com/fgaudo/fp-ts-rxjs/issues",
 		"email": "fgaudo@gmail.com"
 	},
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
+	"exports": {
+		"./Observable": {
+			"import": "./dist/Observable.mjs",
+			"require": "./dist/Observable.js"
+		},
+		"./ObservableEither": {
+			"import": "./dist/ObservableEither.mjs",
+			"require": "./dist/ObservableEither.js"
+		},
+		"./ReaderObservable": {
+			"import": "./dist/ReaderObservable.mjs",
+			"require": "./dist/ReaderObservable.js"
+		},
+		"./ReaderObservableEither": {
+			"import": "./dist/ReaderObservableEither.mjs",
+			"require": "./dist/ReaderObservableEither.js"
+		}
+	},
+	"type": "commonjs",
 	"files": [
 		"dist"
 	],
@@ -23,38 +39,27 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"peerDependencies": {
-		"fp-ts": "2.x",
-		"rxjs": "7.x"
+		"fp-ts": "^2.16.2",
+		"rxjs": "^7.8.1"
 	},
 	"devDependencies": {
 		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
-		"@types/chai": "^4.3.11",
-		"@types/mocha": "^10.0.6",
 		"@typescript-eslint/eslint-plugin": "^6.18.1",
 		"@typescript-eslint/parser": "^6.18.1",
-		"chai": "^5.0.0",
-		"del-cli": "^5.1.0",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-functional": "^6.0.0",
 		"eslint-plugin-tsdoc": "^0.2.17",
-		"fp-ts": "2.x",
-		"mocha": "^10.2.0",
-		"move-cli": "^2.0.0",
 		"prettier": "^3.1.1",
-		"rxjs": "7.x",
 		"simplytyped": "^3.3.0",
-		"ts-mocha": "^10.0.0",
 		"tsup": "^8.0.1",
 		"typescript": "^5.3.3"
 	},
 	"keywords": [
 		"fp-ts",
-		"fp-ts-rxjs",
 		"rxjs"
 	],
 	"tags": [
-		"fp-ts-rxjs",
 		"rxjs",
 		"fp-ts"
 	],
