@@ -2,7 +2,6 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
 	entry: [
-		'src/index.ts',
 		'src/Observable.ts',
 		'src/ObservableEither.ts',
 		'src/ReaderObservable.ts',
