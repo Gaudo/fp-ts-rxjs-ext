@@ -15,19 +15,23 @@
 	"exports": {
 		"./Observable": {
 			"import": "./dist/Observable.js",
-			"require": "./dist/Observable.cjs"
+			"require": "./dist/Observable.cjs",
+			"types": "./dist/Observable.d.ts"
 		},
 		"./ObservableEither": {
 			"import": "./dist/ObservableEither.js",
-			"require": "./dist/ObservableEither.cjs"
+			"require": "./dist/ObservableEither.cjs",
+			"types": "./dist/ObservableEither.d.ts"
 		},
 		"./ReaderObservable": {
 			"import": "./dist/ReaderObservable.js",
-			"require": "./dist/ReaderObservable.cjs"
+			"require": "./dist/ReaderObservable.cjs",
+			"types": "./dist/ReaderObservable.d.ts"
 		},
 		"./ReaderObservableEither": {
 			"import": "./dist/ReaderObservableEither.js",
-			"require": "./dist/ReaderObservableEither.cjs"
+			"require": "./dist/ReaderObservableEither.cjs",
+			"types": "./dist/ReaderObservableEither.d.ts"
 		}
 	},
 	"type": "module",
@@ -53,7 +57,8 @@
 		"prettier": "^3.1.1",
 		"simplytyped": "^3.3.0",
 		"tsup": "^8.0.1",
-		"typescript": "^5.3.3"
+		"typescript": "^5.3.3",
+		"unbuild": "^2.0.0"
 	},
 	"keywords": [
 		"fp-ts",
