@@ -1,5 +1,5 @@
-import * as OPT from 'fp-ts/Option'
-import { flow } from 'fp-ts/function'
+import * as OPT from 'fp-ts/lib/Option'
+import { flow } from 'fp-ts/lib/function'
 import * as Rx from 'rxjs'
 
 export function filterMap<A, B>(

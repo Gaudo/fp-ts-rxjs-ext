@@ -1,5 +1,5 @@
-import * as E from 'fp-ts/Either'
-import { flow, pipe } from 'fp-ts/function'
+import * as E from 'fp-ts/lib/Either'
+import { flow, pipe } from 'fp-ts/lib/function'
 import * as Rx from 'rxjs'
 
 export type ObservableEither<E, A> = Rx.Observable<E.Either<E, A>>
