@@ -1,54 +1,53 @@
-import * as R from 'fp-ts/Reader'
-import * as RIO from 'fp-ts/ReaderIO'
-import { pipe } from 'fp-ts/function'
+import * as R from 'fp-ts/lib/Reader'
+import * as RIO from 'fp-ts/lib/ReaderIO'
+import { pipe } from 'fp-ts/lib/function'
 import * as Rx from 'rxjs'
-import * as RxO from 'rxjs/operators'
 import { UnionToIntersection } from 'simplytyped'
 
 export type ReaderObservable<ENV, A> = R.Reader<ENV, Rx.Observable<A>>
 
 //////////////
 
-type SwitchMapW = <ENV1, IN, OUT>(
-	project: (a: IN, index: number) => ReaderObservable<ENV1, OUT>
-) => <ENV2>(p: ReaderObservable<ENV2, IN>) => ReaderObservable<ENV1 & ENV2, OUT>
+type SwitchMapW = <ENV1, A, B>(
+	project: (a: A, index: number) => ReaderObservable<ENV1, B>
+) => <ENV2>(p: ReaderObservable<ENV2, A>) => ReaderObservable<ENV1 & ENV2, B>
 
 export const switchMapW: SwitchMapW = project => ro => env =>
 	pipe(
 		ro(env),
-		RxO.switchMap((in_, index) => project(in_, index)(env))
+		Rx.switchMap((a, index) => project(a, index)(env))
 	)
 
 //////////////
 
-type SwitchMap = <ENV, IN, OUT>(
-	project: (a: IN, index: number) => ReaderObservable<ENV, OUT>
-) => (p: ReaderObservable<ENV, IN>) => ReaderObservable<ENV, OUT>
+type SwitchMap = <ENV, A, B>(
+	project: (a: A, index: number) => ReaderObservable<ENV, B>
+) => (p: ReaderObservable<ENV, A>) => ReaderObservable<ENV, B>
 
 export const switchMap: SwitchMap = switchMapW
 
 //////////////
 
-type MergeMap = <ENV, IN, OUT>(
-	project: (a: IN, index: number) => ReaderObservable<ENV, OUT>
-) => (p: ReaderObservable<ENV, IN>) => ReaderObservable<ENV, OUT>
+type MergeMap = <ENV, A, B>(
+	project: (a: A, index: number) => ReaderObservable<ENV, B>
+) => (p: ReaderObservable<ENV, A>) => ReaderObservable<ENV, B>
 
 export const mergeMap: MergeMap = project => ro => env =>
 	pipe(
 		ro(env),
-		RxO.mergeMap((in_, index) => project(in_, index)(env))
+		Rx.mergeMap((a, index) => project(a, index)(env))
 	)
 
 //////////////
 
-type ExhaustMap = <ENV, IN, OUT>(
-	project: (a: IN, index: number) => ReaderObservable<ENV, OUT>
-) => (p: ReaderObservable<ENV, IN>) => ReaderObservable<ENV, OUT>
+type ExhaustMap = <ENV, A, B>(
+	project: (a: A, index: number) => ReaderObservable<ENV, B>
+) => (p: ReaderObservable<ENV, A>) => ReaderObservable<ENV, B>
 
 export const exhaustMap: ExhaustMap = project => ro => env =>
 	pipe(
 		ro(env),
-		RxO.exhaustMap((in_, index) => project(in_, index)(env))
+		Rx.exhaustMap((a, index) => project(a, index)(env))
 	)
 
 //////////////
@@ -60,7 +59,7 @@ type Tap = <ENV, A>(
 export const tap: Tap = f => ro => env =>
 	pipe(
 		ro(env),
-		RxO.tap(a => f(a)(env)())
+		Rx.tap(a => f(a)(env)())
 	)
 
 //////////////
@@ -70,7 +69,7 @@ type DistinctUntilChanged = <A>(
 ) => <ENV>(p: ReaderObservable<ENV, A>) => ReaderObservable<ENV, A>
 
 export const distinctUntilChanged: DistinctUntilChanged = f => ro => env =>
-	pipe(ro(env), RxO.distinctUntilChanged(f))
+	pipe(ro(env), Rx.distinctUntilChanged(f))
 
 //////////////
 
