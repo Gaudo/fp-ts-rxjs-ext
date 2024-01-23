@@ -1,5 +1,5 @@
-module.exports = {
-	plugins: [require.resolve('@trivago/prettier-plugin-sort-imports')],
+export default {
+	plugins: ['@trivago/prettier-plugin-sort-imports'],
 	semi: false,
 	printWidth: 80,
 	singleQuote: true,
