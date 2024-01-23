@@ -14,23 +14,23 @@
 	},
 	"exports": {
 		"./Observable": {
-			"import": "./dist/Observable.mjs",
-			"require": "./dist/Observable.js"
+			"import": "./dist/Observable.js",
+			"require": "./dist/Observable.cjs"
 		},
 		"./ObservableEither": {
-			"import": "./dist/ObservableEither.mjs",
-			"require": "./dist/ObservableEither.js"
+			"import": "./dist/ObservableEither.js",
+			"require": "./dist/ObservableEither.cjs"
 		},
 		"./ReaderObservable": {
-			"import": "./dist/ReaderObservable.mjs",
-			"require": "./dist/ReaderObservable.js"
+			"import": "./dist/ReaderObservable.js",
+			"require": "./dist/ReaderObservable.cjs"
 		},
 		"./ReaderObservableEither": {
-			"import": "./dist/ReaderObservableEither.mjs",
-			"require": "./dist/ReaderObservableEither.js"
+			"import": "./dist/ReaderObservableEither.js",
+			"require": "./dist/ReaderObservableEither.cjs"
 		}
 	},
-	"type": "commonjs",
+	"type": "module",
 	"files": [
 		"dist"
 	],
