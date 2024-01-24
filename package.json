@@ -13,25 +13,21 @@
 		"email": "fgaudo@gmail.com"
 	},
 	"exports": {
-		"./Observable": {
+		"./Observable.js": {
 			"import": "./dist/Observable.js",
-			"require": "./dist/Observable.cjs",
-			"types": "./dist/Observable.d.ts"
+			"require": "./dist/Observable.cjs"
 		},
-		"./ObservableEither": {
+		"./ObservableEither.js": {
 			"import": "./dist/ObservableEither.js",
-			"require": "./dist/ObservableEither.cjs",
-			"types": "./dist/ObservableEither.d.ts"
+			"require": "./dist/ObservableEither.cjs"
 		},
-		"./ReaderObservable": {
+		"./ReaderObservable.js": {
 			"import": "./dist/ReaderObservable.js",
-			"require": "./dist/ReaderObservable.cjs",
-			"types": "./dist/ReaderObservable.d.ts"
+			"require": "./dist/ReaderObservable.cjs"
 		},
-		"./ReaderObservableEither": {
+		"./ReaderObservableEither.js": {
 			"import": "./dist/ReaderObservableEither.js",
-			"require": "./dist/ReaderObservableEither.cjs",
-			"types": "./dist/ReaderObservableEither.d.ts"
+			"require": "./dist/ReaderObservableEither.cjs"
 		}
 	},
 	"type": "module",
@@ -57,8 +53,7 @@
 		"prettier": "^3.1.1",
 		"simplytyped": "^3.3.0",
 		"tsup": "^8.0.1",
-		"typescript": "^5.3.3",
-		"unbuild": "^2.0.0"
+		"typescript": "^5.3.3"
 	},
 	"keywords": [
 		"fp-ts",
