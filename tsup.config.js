@@ -7,7 +7,7 @@ export default defineConfig({
 		'src/ReaderObservable.ts',
 		'src/ReaderObservableEither.ts'
 	],
-	format: ['cjs', 'esm'],
+	format: ['esm'],
 	dts: true,
 	splitting: false,
 	sourcemap: true,

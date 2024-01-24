@@ -13,22 +13,10 @@
 		"email": "fgaudo@gmail.com"
 	},
 	"exports": {
-		"./Observable.js": {
-			"import": "./dist/Observable.js",
-			"require": "./dist/Observable.cjs"
-		},
-		"./ObservableEither.js": {
-			"import": "./dist/ObservableEither.js",
-			"require": "./dist/ObservableEither.cjs"
-		},
-		"./ReaderObservable.js": {
-			"import": "./dist/ReaderObservable.js",
-			"require": "./dist/ReaderObservable.cjs"
-		},
-		"./ReaderObservableEither.js": {
-			"import": "./dist/ReaderObservableEither.js",
-			"require": "./dist/ReaderObservableEither.cjs"
-		}
+		"./Observable.js": "./dist/Observable.js",
+		"./ObservableEither.js": "./dist/ObservableEither.js",
+		"./ReaderObservable.js": "./dist/ReaderObservable.js",
+		"./ReaderObservableEither.js": "./dist/ReaderObservableEither.js"
 	},
 	"type": "module",
 	"files": [

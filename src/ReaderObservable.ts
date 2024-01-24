@@ -1,6 +1,6 @@
-import * as R from 'fp-ts/Reader'
-import * as RIO from 'fp-ts/ReaderIO'
-import { pipe } from 'fp-ts/function'
+import * as R from 'fp-ts/es6/Reader.js'
+import * as RIO from 'fp-ts/es6/ReaderIO.js'
+import { pipe } from 'fp-ts/es6/function.js'
 import * as Rx from 'rxjs'
 import type { UnionToIntersection } from 'simplytyped'
 
