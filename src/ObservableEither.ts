@@ -1,6 +1,8 @@
-import * as E from 'fp-ts/es6/Either.js'
-import { flow, pipe } from 'fp-ts/es6/function.js'
+import { either as E, function as F } from 'fp-ts'
 import * as Rx from 'rxjs'
+
+const flow = F.flow
+const pipe = F.pipe
 
 export type ObservableEither<E, A> = Rx.Observable<E.Either<E, A>>
 

@@ -1,8 +1,8 @@
-import * as R from 'fp-ts/es6/Reader.js'
-import * as RIO from 'fp-ts/es6/ReaderIO.js'
-import { pipe } from 'fp-ts/es6/function.js'
+import { function as F, reader as R, readerIO as RIO } from 'fp-ts'
 import * as Rx from 'rxjs'
 import type { UnionToIntersection } from 'simplytyped'
+
+const pipe = F.pipe
 
 export type ReaderObservable<ENV, A> = R.Reader<ENV, Rx.Observable<A>>
 

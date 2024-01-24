@@ -1,13 +1,13 @@
-import type { Either } from 'fp-ts/es6/Either.js'
-import type { Reader } from 'fp-ts/es6/Reader.js'
-import { pipe } from 'fp-ts/es6/function.js'
+import { type either as E, function as F, type reader as R } from 'fp-ts'
 import * as Rx from 'rxjs'
 
 import * as OE from './ObservableEither'
 
-export type ReaderObservableEither<ENV, E, A> = Reader<
+const pipe = F.pipe
+
+export type ReaderObservableEither<ENV, E, A> = R.Reader<
 	ENV,
-	Rx.Observable<Either<E, A>>
+	Rx.Observable<E.Either<E, A>>
 >
 
 //////////////

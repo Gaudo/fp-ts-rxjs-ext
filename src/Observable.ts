@@ -1,6 +1,7 @@
-import * as OPT from 'fp-ts/es6/Option.js'
-import { flow } from 'fp-ts/es6/function.js'
+import { function as F, option as OPT } from 'fp-ts'
 import * as Rx from 'rxjs'
+
+const flow = F.flow
 
 export function filterMap<A, B>(
 	f: (a: A) => OPT.Option<B>
