@@ -1,6 +1,6 @@
 {
 	"name": "@fgaudo/fp-ts-rxjs",
-	"version": "0.1.2-2",
+	"version": "0.1.2-3",
 	"description": "RxJS bindings for fp-ts",
 	"license": "MIT",
 	"author": "Francesco Gaudenzi <fgaudo@gmail.com>",
