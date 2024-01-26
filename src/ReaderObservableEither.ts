@@ -5,9 +5,9 @@ import * as OE from './ObservableEither'
 
 const pipe = F.pipe
 
-export type ReaderObservableEither<ENV, E, A> = R.Reader<
+export type ReaderObservableEither<ENV, ERR, A> = R.Reader<
 	ENV,
-	Rx.Observable<E.Either<E, A>>
+	Rx.Observable<E.Either<ERR, A>>
 >
 
 //////////////

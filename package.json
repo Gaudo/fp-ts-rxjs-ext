@@ -13,21 +13,9 @@
 		"email": "fgaudo@gmail.com"
 	},
 	"exports": {
-		"./Observable.js": {
-			"import": "./dist/Observable.js",
-			"require": "./dist/Observable.cjs"
-		},
-		"./ObservableEither.js": {
-			"import": "./dist/ObservableEither.js",
-			"require": "./dist/ObservableEither.cjs"
-		},
-		"./ReaderObservable.js": {
-			"import": "./dist/ReaderObservable.js",
-			"require": "./dist/ReaderObservable.cjs"
-		},
-		"./ReaderObservableEither.js": {
-			"import": "./dist/ReaderObservableEither.js",
-			"require": "./dist/ReaderObservableEither.cjs"
+		"./*.js": {
+			"import": "./dist/*.js",
+			"require": "./dist/*.cjs"
 		}
 	},
 	"type": "module",
@@ -59,9 +47,5 @@
 		"fp-ts",
 		"rxjs"
 	],
-	"tags": [
-		"rxjs",
-		"fp-ts"
-	],
-	"packageManager": "npm@10.3.0+sha256.ec92e7332e3f7aef6feb2b3c9585fde534cd56905cf26e77debc69e4e2b44892"
+	"packageManager": "npm@10.4.0+sha256.0e4e5986526a578a6cdc5647cf862efba03dfcb063672f90bc525433b893fba9"
 }

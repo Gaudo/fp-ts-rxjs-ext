@@ -4,7 +4,7 @@ import * as Rx from 'rxjs'
 const flow = F.flow
 const pipe = F.pipe
 
-export type ObservableEither<E, A> = Rx.Observable<E.Either<E, A>>
+export type ObservableEither<ERR, A> = Rx.Observable<E.Either<ERR, A>>
 
 //////////////
 
