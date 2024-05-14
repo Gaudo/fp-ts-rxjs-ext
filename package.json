@@ -27,21 +27,21 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"peerDependencies": {
-		"fp-ts": "^2.16.2",
+		"fp-ts": "^2.16.5",
 		"rxjs": "^7.8.1"
 	},
 	"devDependencies": {
 		"@trivago/prettier-plugin-sort-imports": "^4.3.0",
-		"@typescript-eslint/eslint-plugin": "^6.18.1",
-		"@typescript-eslint/parser": "^6.18.1",
-		"eslint": "^8.56.0",
+		"@typescript-eslint/eslint-plugin": "^6.21.0",
+		"@typescript-eslint/parser": "^6.21.0",
+		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-functional": "^6.0.0",
+		"eslint-plugin-functional": "^6.5.1",
 		"eslint-plugin-tsdoc": "^0.2.17",
-		"prettier": "^3.1.1",
+		"prettier": "^3.2.5",
 		"simplytyped": "^3.3.0",
-		"tsup": "^8.0.1",
-		"typescript": "^5.3.3"
+		"tsup": "^8.0.2",
+		"typescript": "^5.4.5"
 	},
 	"keywords": [
 		"fp-ts",
