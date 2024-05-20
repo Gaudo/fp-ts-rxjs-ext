@@ -59,7 +59,9 @@ type Tap = <ENV, A>(
 export const tap: Tap = f => ro => env =>
 	pipe(
 		ro(env),
-		Rx.tap(a => f(a)(env)())
+		Rx.tap(a => {
+			f(a)(env)()
+		})
 	)
 
 //////////////
@@ -100,6 +102,7 @@ type Concat = <ENV, A>(
 	...ros: readonly ReaderObservable<ENV, A>[]
 ) => ReaderObservable<ENV, A>
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
 export const concat: Concat = concatW as any
 
 export const map: <A, B>(
